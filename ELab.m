@@ -170,8 +170,8 @@ classdef ELab < handle
                     cmd_demo_dir = strrep(cmd_demo_dir,'\','\\');
                     sim_demo_dir = strrep(sim_demo_dir,'\','\\');
                 end
-                cmd_line_link = obj.getCommandLink('command line example', ['edit ' cmd_demo_dir]);
-                sim_line_link = obj.getCommandLink('Simulink example', ['edit ' sim_demo_dir]);
+                cmd_line_link = obj.getCommandLink('command line example', ['edit ''' cmd_demo_dir '''']);
+                sim_line_link = obj.getCommandLink('Simulink example', ['edit ''' sim_demo_dir '''']);
                 fprintf('Would you rather use command line or Simulink?\n');
                 fprintf(['Click to open ' cmd_line_link '\n']);
                 fprintf(['Click to open ' sim_line_link '\n']);

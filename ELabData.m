@@ -16,7 +16,10 @@ classdef ELabData < handle
     
     methods(Access = public)
         
-        function obj = ELabData(session_key)
+        function obj = ELabData(session_key, varargin)
+            if(nargin>1)
+                obj.ElabServiceUrl = varargin{1};
+            end
             obj.Data = obj.fetchApi('get_session_data',{':session_key',session_key,':convert_units?',1});
             obj.Data.time = datetime(obj.Data.timestamp, 'InputFormat', 'yyyy-MM-dd HH:mm:ss.SSSZ', 'TimeZone', ['UTC+' num2str(-java.util.Date().getTimezoneOffset()/60)]);
             obj.Data = rmfield(obj.Data,'timestamp');
